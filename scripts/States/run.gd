@@ -14,20 +14,6 @@ func enter(previous_state_path: String, _data := {}) -> void:
 	player.curr_state = PlayerState.RUNNING
 	player.sprite.play("Idle")
 
-func update(_delta: float) -> void:
-	if PlayerStats.stamina <= 0:
-		match prev_state:
-			DASHING:
-				transitioned.emit(WALKING)
-			_:
-				transitioned.emit(prev_state)
-	elif PlayerStats.stamina < float(PlayerStats.max_stamina)/3.0 and stamina_depleted:
-		match prev_state:
-			DASHING:
-				transitioned.emit(WALKING)
-			_:
-				transitioned.emit(prev_state)
-
 func physics_update(_delta : float) -> void:
 	# Movement
 	var direction = Input.get_vector("left", "right", "up", "down")

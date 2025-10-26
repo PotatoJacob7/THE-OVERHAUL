@@ -3,11 +3,11 @@
 [ext_resource type="Script" uid="uid://bpuvuvs5a1wt5" path="res://scripts/player.gd" id="1_fjrip"]
 [ext_resource type="Texture2D" uid="uid://cbirgyuoup2he" path="res://sprites/IdlePlayer_ZO_test.png" id="1_tuyoq"]
 [ext_resource type="Script" uid="uid://dgln8qajiwbip" path="res://scripts/States/StateMachine.gd" id="2_fjrip"]
-[ext_resource type="Texture2D" uid="uid://dj74d7rg3s40l" path="res://Sprites/DashPlayer_ZO_test.png" id="2_y4r1p"]
+[ext_resource type="Texture2D" uid="uid://dj74d7rg3s40l" path="res://sprites/DashPlayer_ZO_test.png" id="2_y4r1p"]
 [ext_resource type="Script" uid="uid://bb7gi8a0k640w" path="res://scripts/States/idle.gd" id="3_smehm"]
-[ext_resource type="Texture2D" uid="uid://cn0das1ddpygl" path="res://Sprites/RunPlayer_ZO_test.png" id="4_d2wvv"]
+[ext_resource type="Texture2D" uid="uid://cn0das1ddpygl" path="res://sprites/RunPlayer_ZO_test.png" id="4_d2wvv"]
 [ext_resource type="Script" uid="uid://dypmhmshfxig7" path="res://scripts/States/walk.gd" id="4_ur7pv"]
-[ext_resource type="Texture2D" uid="uid://cbfdtyachueij" path="res://Sprites/WalkPlayer_ZO_test.png" id="5_3v2ag"]
+[ext_resource type="Texture2D" uid="uid://cbfdtyachueij" path="res://sprites/WalkPlayer_ZO_test.png" id="5_3v2ag"]
 [ext_resource type="Script" uid="uid://dtgfhe0s7ii7c" path="res://scripts/States/run.gd" id="5_y4r1p"]
 [ext_resource type="Script" uid="uid://dy6dog41modc" path="res://scripts/States/dash.gd" id="6_d2wvv"]
 
@@ -141,10 +141,6 @@ metadata/_custom_type_script = "uid://k2sf2cdn0ara"
 script = ExtResource("5_y4r1p")
 metadata/_custom_type_script = "uid://k2sf2cdn0ara"
 
-[node name="NoStaminaTimer" type="Timer" parent="StateMachine/Running"]
-wait_time = 2.0
-one_shot = true
-
 [node name="Dashing" type="Node" parent="StateMachine"]
 script = ExtResource("6_d2wvv")
 metadata/_custom_type_script = "uid://k2sf2cdn0ara"
@@ -155,3 +151,6 @@ one_shot = true
 
 [node name="RechargeTimer" type="Timer" parent="StateMachine/Dashing"]
 wait_time = 2.0
+
+[connection signal="timeout" from="StateMachine/Dashing/LengthTimer" to="StateMachine/Dashing" method="switch_state"]
+[connection signal="timeout" from="StateMachine/Dashing/RechargeTimer" to="StateMachine/Dashing" method="dash_used"]

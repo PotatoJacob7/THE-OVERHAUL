@@ -1,8 +1,18 @@
-[gd_scene load_steps=2 format=3 uid="uid://dif381ucpy6v7"]
+[gd_scene load_steps=4 format=3 uid="uid://dif381ucpy6v7"]
 
 [ext_resource type="PackedScene" uid="uid://dq6v1ubtjbrwo" path="res://scenes/player.tscn" id="1_6x5uh"]
+[ext_resource type="Texture2D" uid="uid://bg1eid64ck25n" path="res://sprites/Logo.png" id="2_wjoj8"]
+[ext_resource type="Texture2D" uid="uid://w1qcndjk46b0" path="res://sprites/Tilesets/crates.png" id="3_bdp8l"]
 
 [node name="Main World" type="Node2D"]
 
 [node name="Player" parent="." instance=ExtResource("1_6x5uh")]
-position = Vector2(0, -22)
+position = Vector2(327, 164)
+
+[node name="Logo" type="Sprite2D" parent="."]
+position = Vector2(452, 166)
+texture = ExtResource("2_wjoj8")
+
+[node name="Crates" type="Sprite2D" parent="."]
+position = Vector2(270, 256)
+texture = ExtResource("3_bdp8l")
