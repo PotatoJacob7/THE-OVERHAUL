@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://dq6v1ubtjbrwo"]
+[gd_scene load_steps=24 format=3 uid="uid://dq6v1ubtjbrwo"]
 
 [ext_resource type="Script" uid="uid://bpuvuvs5a1wt5" path="res://scripts/player.gd" id="1_fjrip"]
 [ext_resource type="Texture2D" uid="uid://cbirgyuoup2he" path="res://sprites/IdlePlayer_ZO_test.png" id="1_tuyoq"]
@@ -10,6 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://cbfdtyachueij" path="res://sprites/WalkPlayer_ZO_test.png" id="5_3v2ag"]
 [ext_resource type="Script" uid="uid://dtgfhe0s7ii7c" path="res://scripts/States/run.gd" id="5_y4r1p"]
 [ext_resource type="Script" uid="uid://dy6dog41modc" path="res://scripts/States/dash.gd" id="6_d2wvv"]
+[ext_resource type="Texture2D" uid="uid://d4loarl3iuomw" path="res://sprites/attack.png" id="11_d2wvv"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_jej6c"]
 atlas = ExtResource("2_y4r1p")
@@ -151,6 +152,15 @@ one_shot = true
 
 [node name="RechargeTimer" type="Timer" parent="StateMachine/Dashing"]
 wait_time = 2.0
+
+[node name="Weapon" type="Marker2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(1, 0)
+
+[node name="Weapon2" type="Sprite2D" parent="Weapon"]
+unique_name_in_owner = true
+position = Vector2(18, 0)
+texture = ExtResource("11_d2wvv")
 
 [connection signal="timeout" from="StateMachine/Dashing/LengthTimer" to="StateMachine/Dashing" method="switch_state"]
 [connection signal="timeout" from="StateMachine/Dashing/RechargeTimer" to="StateMachine/Dashing" method="dash_used"]

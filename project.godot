@@ -28,6 +28,15 @@ window/size/window_width_override=1920
 window/size/window_height_override=1080
 window/stretch/mode="canvas_items"
 
+[file_customization]
+
+folder_colors={
+"res://AutoLoads/": "teal",
+"res://scenes/": "purple",
+"res://scripts/": "yellow",
+"res://sprites/": "pink"
+}
+
 [input]
 
 up={
