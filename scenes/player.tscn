@@ -123,6 +123,7 @@ animation = &"Walk"
 autoplay = "Idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+light_mask = 3
 position = Vector2(0, 5)
 shape = SubResource("CapsuleShape2D_smehm")
 
